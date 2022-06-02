@@ -30,8 +30,9 @@ function walk() {
                 gamer.isMonsterPresent = true
                 encounter()
             }
-        } else if (userAction === "P") {
+        } else if (userAction === "P" || userAction === "PRINT") {
             gamer.stats()
+            walk()
         }
     }
     if (gamer.isMonsterPresent === true) {
@@ -150,7 +151,7 @@ function fight(enemy) {
 
 gamer.name = readline.question("Once upon a time you were walking through the 'Yellow Forest' in the land of Ooo....erm, what's your name? ").toUpperCase()
 
-userAction = readline.question(`\nVery well, then ${gamer.name}. You were on your way for a pizza at Pizza Sally's when you realized this forest is a dangerous one!\nKeep your courage as you trek to your lunch!, and maybe collect 3 pizza coupons from the tree people as you go... Press W to walk. `).toUpperCase()
+userAction = readline.question(`\nVery well, then ${gamer.name}. You were on your way for a pizza at Pizza Sally's when you realized this forest is a dangerous one!\nKeep your courage as you trek to your lunch!, and maybe collect 3 pizza coupons from the tree people as you go... Press W to walk. or P to check your stats when walking `).toUpperCase()
 
 
 // This will generate a random number and depending on the number will make an enemey appear. and it will run enemy encounter funcion. that will ask if they wanna fight or run. if they runtheres a chance they will not get away.
@@ -161,6 +162,7 @@ if (userAction === "W") {
     } else {
         walk()
     }
-} else if (userAction === "P") {
+} else if (userAction === "P" || userAction === "PRINT") {
     gamer.stats()
+    walk()
 }
